@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://coyy4wnm63pvd"]
+
+[ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="1_8io83"]
+[ext_resource type="Script" path="res://game.gd" id="1_kpjyf"]
+[ext_resource type="PackedScene" uid="uid://b3d4n848sbyjy" path="res://UI.tscn" id="4_5u0j8"]
+[ext_resource type="PackedScene" uid="uid://d0l5sxb51pxbc" path="res://Player.tscn" id="4_ix4a4"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_kpjyf")
+
+[node name="Strawdoll" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(141, 124)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8io83")
+flip_h = true
+
+[node name="Strawdoll2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(141, 312)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8io83")
+flip_h = true
+
+[node name="Strawdoll3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(141, 524)
+scale = Vector2(3, 3)
+texture = ExtResource("1_8io83")
+flip_h = true
+
+[node name="Control" parent="." instance=ExtResource("4_5u0j8")]
+
+[node name="Player" parent="." instance=ExtResource("4_ix4a4")]
+position = Vector2(350, 228)
