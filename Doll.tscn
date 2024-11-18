@@ -1,7 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://d1i5vw00tho8t"]
+[gd_scene load_steps=6 format=3 uid="uid://d1i5vw00tho8t"]
 
 [ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="1_0y7ql"]
 [ext_resource type="Script" path="res://doll.gd" id="2_2tpcs"]
+[ext_resource type="Script" path="res://base_unit.gd" id="3_h8oxy"]
+
+[sub_resource type="Resource" id="Resource_e6epy"]
+script = ExtResource("3_h8oxy")
+Hp = 100
+Effects_applied = []
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prni2"]
 height = 34.0
@@ -10,9 +16,25 @@ height = 34.0
 texture_filter = 1
 texture = ExtResource("1_0y7ql")
 script = ExtResource("2_2tpcs")
+base_unit = SubResource("Resource_e6epy")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -1)
 shape = SubResource("CapsuleShape2D_prni2")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = -13.0
+offset_top = -54.0
+offset_right = 12.0
+offset_bottom = -25.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

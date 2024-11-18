@@ -30,14 +30,21 @@ func _input(event: InputEvent) -> void:
 				collision.shape = card.cardArea
 				area.add_child(collision)
 		if event.is_action_released("Card1"):
+			var card: Card = hand.cards[0]
 			var overlapping_areas = area.get_overlapping_areas()
 			for area in overlapping_areas:
 				print("Area", area)
 				print("Parent", area.get_parent())
 			var overlapping_bodies = area.get_overlapping_bodies()
 			for body in overlapping_bodies:
-				print("body", body)
-				print("Parent", body.get_parent())
+				print("body: ", body)
+				print(body.get_class())
+				var parent = body.get_parent()
+				print("Parent: ", parent)
+				print(parent.get_class())
+				if parent is Doll:
+					var doll: Doll = parent
+					doll.base_unit.apply_effects(card.card_effects)
 			area.queue_free()
 
 
