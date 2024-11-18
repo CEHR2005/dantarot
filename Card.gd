@@ -4,6 +4,10 @@ extends Resource
 class_name Card
 var cardName: String
 var cardArea: Shape2D
+var card_effects: Array = []:
+	set(value):
+		card_effects = value
+		notify_property_list_changed()
 #enum type {
 	#Self = 1 << 0, ## Specifying that the first bit in the bit array is flipped
 					### resulting in an integer value of 1
@@ -75,6 +79,21 @@ func _get_property_list() -> Array:
 			"hint": PROPERTY_HINT_RESOURCE_TYPE,
 			"hint_string": "Shape2D",
 		})
+	#properties.append({
+		#"name": "cardEffects",
+		#"type": TYPE_ARRAY,
+		#"usage": PROPERTY_USAGE_DEFAULT,
+		#"hint": PROPERTY_HINT_ARRAY_TYPE,
+		#"hint_string": potionsList,
+	#})
+	properties.append({
+		"name": "card_effects",
+		"type": TYPE_ARRAY,
+		"usage": PROPERTY_USAGE_DEFAULT,
+		"hint": PROPERTY_HINT_TYPE_STRING,
+		"hint_string": str("%d:%d/%d:CardEffect") % \
+			[TYPE_ARRAY, TYPE_OBJECT, PROPERTY_HINT_RESOURCE_TYPE]
+	})
 	#properties.append({
 		#"name": "cardPotionBags",
 		#"type": TYPE_ARRAY,

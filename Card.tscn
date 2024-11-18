@@ -1,7 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://b3iay6xedpryi"]
+[gd_scene load_steps=12 format=3 uid="uid://b3iay6xedpryi"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_hhetn"]
 [ext_resource type="Script" path="res://Adv.gd" id="1_hxv4s"]
+[ext_resource type="Script" path="res://CardEffect.gd" id="2_kurq5"]
 [ext_resource type="Script" path="res://Visualizer.gd" id="2_y1cx4"]
 [ext_resource type="Script" path="res://child_node.gd" id="3_h7tkm"]
 [ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="5_1fykx"]
@@ -9,11 +10,17 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_lw24h"]
 radius = 338.05
 
+[sub_resource type="Resource" id="Resource_h10lo"]
+script = ExtResource("2_kurq5")
+duration_type = 1
+damage_type = 1
+
 [sub_resource type="Resource" id="Resource_h8gs8"]
 script = ExtResource("1_hhetn")
-cardName = ""
+cardName = "Name2"
 cardTest = 2
 cardArea = SubResource("CircleShape2D_lw24h")
+card_effects = Array[Array]([[SubResource("Resource_h10lo")]])
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nkw5"]
 
@@ -80,12 +87,13 @@ text = "13
 "
 text_overrun_behavior = 3
 
-[node name="Label" type="Label" parent="CardVisual/Panel/Box"]
+[node name="CardName" type="Label" parent="CardVisual/Panel/Box"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "NameTestTestTestTestTestTestTestTestTestTestTestTestNameTestTestTestTestTestTestTestTestTestTestTestTest"
+text = "Name2"
 label_settings = SubResource("LabelSettings_3nkw5")
 horizontal_alignment = 1
 text_overrun_behavior = 3

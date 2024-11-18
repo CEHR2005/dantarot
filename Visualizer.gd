@@ -7,7 +7,7 @@ extends Node2D
 @export var parentNode: Node2D
 var collisionShape: CollisionShape2D
 var newResource: Card
-
+@onready var card_name_label: Label = %CardName
 ## Be careful when running the process function in a tool script.
 ## If errors are written it can quickly crash the editor, fill
 ## the output log with errors, or slow down the editor to a crawl.
@@ -19,6 +19,7 @@ func _process(_delta) -> void:
 			## if the parent's script is not a tool.
 			newResource = parentNode.CardInfo
 			update_shape()
+			update_visual()
 
 ## A simple function. Other methods for getting the necessary
 ## information to the visualizer and updating the editor are possible;
@@ -35,3 +36,6 @@ func update_shape() -> void:
 	var newShape: Shape2D
 	newShape = newResource.cardArea
 	collisionShape.shape = newShape
+	
+func update_visual() -> void:
+	card_name_label.text = newResource.cardName
