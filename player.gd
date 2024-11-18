@@ -30,10 +30,22 @@ func _input(event: InputEvent) -> void:
 				collision.shape = card.cardArea
 				area.add_child(collision)
 		if event.is_action_released("Card1"):
-			print("release")
+			var overlapping_areas = area.get_overlapping_areas()
+			for area in overlapping_areas:
+				print("Area", area)
+				print("Parent", area.get_parent())
+			var overlapping_bodies = area.get_overlapping_bodies()
+			for body in overlapping_bodies:
+				print("body", body)
+				print("Parent", body.get_parent())
+			area.queue_free()
 
 
 func _process(delta):
+	if is_instance_valid(area):
+		area.position = get_global_mouse_position()
+	
+	
 	var velocity = Vector2.ZERO 
 	# Проверка нажатия клавиш и определение направления
 	if Input.is_action_pressed("ui_right"):
