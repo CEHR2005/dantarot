@@ -4,12 +4,34 @@ extends CharacterBody2D
 @export var hand: Hand
 @onready var AP: AnimationPlayer = %AP
 @onready var sprite_2d: Sprite2D = %Sprite2D
-
+const GAME = preload("res://Game.tscn")
 var speed := 400
 var screen_size
+
+var area: Area2D
+var collision: CollisionShape2D
+
 func _ready() -> void:
 	AP.play("Base")
 	screen_size = get_viewport_rect().size
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		if event.is_action_pressed("Card1"):
+			print("press")
+			#var card = Card.new()
+			var card: Card = hand.cards[0]
+			card.activate()
+			if card.TargetType == Card.TargetTypeList.Area:
+				area = Area2D.new()
+				area.position = get_global_mouse_position()
+				get_parent().add_child(area)
+				collision = CollisionShape2D.new()
+				collision.shape = card.cardArea
+				area.add_child(collision)
+		if event.is_action_released("Card1"):
+			print("release")
+
 
 func _process(delta):
 	var velocity = Vector2.ZERO 

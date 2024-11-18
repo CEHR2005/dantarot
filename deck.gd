@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 class_name Deck
 
 var max_size: int

@@ -1,7 +1,23 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0l5sxb51pxbc"]
+[gd_scene load_steps=12 format=3 uid="uid://d0l5sxb51pxbc"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_kephj"]
 [ext_resource type="Texture2D" uid="uid://d1h86cwh351cd" path="res://mage.png" id="1_lusj0"]
+[ext_resource type="Script" path="res://Hand.gd" id="2_1x04b"]
+[ext_resource type="Script" path="res://Card.gd" id="2_lrhxt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dks2k"]
+radius = 50.0
+
+[sub_resource type="Resource" id="Resource_mm3jh"]
+script = ExtResource("2_lrhxt")
+cardName = "test"
+TargetType = 2
+cardArea = SubResource("CircleShape2D_dks2k")
+card_effects = []
+
+[sub_resource type="Resource" id="Resource_k6cba"]
+script = ExtResource("2_1x04b")
+cards = [SubResource("Resource_mm3jh")]
 
 [sub_resource type="Animation" id="Animation_lq2i4"]
 resource_name = "Base"
@@ -49,6 +65,7 @@ height = 98.0
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(550, 290)
 script = ExtResource("1_kephj")
+hand = SubResource("Resource_k6cba")
 
 [node name="AP" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true

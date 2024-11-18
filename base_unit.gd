@@ -2,4 +2,8 @@ extends Node2D
 class_name BaseUnit
 
 
-var Hp: int
+@export var Hp: int
+
+
+func take_damage(damage: float):
+	Hp-=damage

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b3iay6xedpryi"]
+[gd_scene load_steps=11 format=3 uid="uid://b3iay6xedpryi"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_hhetn"]
 [ext_resource type="Script" path="res://Adv.gd" id="1_hxv4s"]
@@ -7,20 +7,20 @@
 [ext_resource type="Script" path="res://child_node.gd" id="3_h7tkm"]
 [ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="5_1fykx"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_lw24h"]
-radius = 338.05
-
-[sub_resource type="Resource" id="Resource_h10lo"]
+[sub_resource type="Resource" id="Resource_das7t"]
 script = ExtResource("2_kurq5")
-duration_type = 1
-damage_type = 1
+effect_type = 0
+delay = 0.0
+duration_type = 0
+duration = 0.0
+damage = 0.0
+damage_type = 0
 
 [sub_resource type="Resource" id="Resource_h8gs8"]
 script = ExtResource("1_hhetn")
 cardName = "Name2"
-cardTest = 2
-cardArea = SubResource("CircleShape2D_lw24h")
-card_effects = Array[Array]([[SubResource("Resource_h10lo")]])
+TargetType = 0
+card_effects = [[SubResource("Resource_das7t")]]
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nkw5"]
 
