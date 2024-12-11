@@ -10,8 +10,11 @@ func _ready() -> void:
 	
 	
 func update_panel():
-
+	for child in v_box_container.get_children():
+		remove_child(child)
+		child.queue_free()
 	for effect: CardEffect in base_unit.Effects_applied:
 		var lable = Label.new()
 		lable.text = CardEffect.Effects.keys()[effect.effect_type]
+		v_box_container
 		v_box_container.add_child(lable)

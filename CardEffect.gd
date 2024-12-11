@@ -32,6 +32,11 @@ enum damage_type_list {
 	magic 
 }
 
+
+func _to_string() -> String:
+	return CardEffect.Effects.keys()[effect_type]	
+
+
 func _get_property_list() -> Array:
 	var properties: Array = []
 

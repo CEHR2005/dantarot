@@ -10,6 +10,7 @@
 radius = 95.78
 
 [sub_resource type="Resource" id="Resource_cmkw2"]
+resource_name = "test"
 script = ExtResource("2_ucwja")
 effect_type = 0
 delay = 0.0

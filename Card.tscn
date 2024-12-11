@@ -1,26 +1,16 @@
-[gd_scene load_steps=11 format=3 uid="uid://b3iay6xedpryi"]
+[gd_scene load_steps=9 format=3 uid="uid://b3iay6xedpryi"]
 
 [ext_resource type="Script" path="res://Card.gd" id="1_hhetn"]
 [ext_resource type="Script" path="res://Adv.gd" id="1_hxv4s"]
-[ext_resource type="Script" path="res://CardEffect.gd" id="2_kurq5"]
 [ext_resource type="Script" path="res://Visualizer.gd" id="2_y1cx4"]
 [ext_resource type="Script" path="res://child_node.gd" id="3_h7tkm"]
 [ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="5_1fykx"]
 
-[sub_resource type="Resource" id="Resource_das7t"]
-script = ExtResource("2_kurq5")
-effect_type = 0
-delay = 0.0
-duration_type = 0
-duration = 0.0
-damage = 0.0
-damage_type = 0
-
-[sub_resource type="Resource" id="Resource_h8gs8"]
+[sub_resource type="Resource" id="Resource_rvg02"]
 script = ExtResource("1_hhetn")
-cardName = "Name2"
+cardName = "Test"
 TargetType = 0
-card_effects = [[SubResource("Resource_das7t")]]
+card_effects = []
 
 [sub_resource type="LabelSettings" id="LabelSettings_3nkw5"]
 
@@ -28,7 +18,7 @@ card_effects = [[SubResource("Resource_das7t")]]
 
 [node name="Card" type="Node2D" node_paths=PackedStringArray("childNode")]
 script = ExtResource("1_hxv4s")
-CardInfo = SubResource("Resource_h8gs8")
+CardInfo = SubResource("Resource_rvg02")
 childNode = NodePath("ChildNode")
 
 [node name="Visualizer" type="Node2D" parent="." node_paths=PackedStringArray("parentNode")]
@@ -37,6 +27,7 @@ script = ExtResource("2_y1cx4")
 parentNode = NodePath("..")
 
 [node name="ChildNode" type="Node2D" parent="."]
+position = Vector2(0, -9)
 script = ExtResource("3_h7tkm")
 
 [node name="CardVisual" type="Control" parent="."]
@@ -93,7 +84,7 @@ custom_minimum_size = Vector2(300, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 0
-text = "Name2"
+text = "Test"
 label_settings = SubResource("LabelSettings_3nkw5")
 horizontal_alignment = 1
 text_overrun_behavior = 3

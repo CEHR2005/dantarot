@@ -18,8 +18,9 @@ func _process(_delta) -> void:
 			## variable for a tool script to be able to access it
 			## if the parent's script is not a tool.
 			newResource = parentNode.CardInfo
-			update_shape()
-			update_visual()
+			if is_instance_valid(newResource):
+				update_shape()
+				update_visual()
 
 ## A simple function. Other methods for getting the necessary
 ## information to the visualizer and updating the editor are possible;

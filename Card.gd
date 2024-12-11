@@ -20,22 +20,16 @@ var card_effects: Array = []:
 		#notify_property_list_changed()
 #var typeKeys: Array = type.keys()
 #var typeList: String = ",".join(typeKeys)
-
-var potionsKeys: Array = TargetTypeList.keys()
-## This joins the array of strings together to form one string
-## with each value separated by a comma. This is the format needed by
-## the hint_string
-var potionsList: String = ",".join(potionsKeys)
-var cardPotionBags: Array = []
-var TargetType: int:
-	set(value):
-		TargetType = value
-		notify_property_list_changed()
 enum TargetTypeList {
 	Self,
 	Enemy,
 	Area,
 }
+var targetsList: String = ",".join(TargetTypeList.keys())
+var TargetType: int:
+	set(value):
+		TargetType = value
+		notify_property_list_changed()
 
 func _get_property_list() -> Array:
 	var properties: Array = []
@@ -69,7 +63,7 @@ func _get_property_list() -> Array:
 		"type": TYPE_INT,
 		"usage": PROPERTY_USAGE_DEFAULT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": potionsList,
+		"hint_string": targetsList,
 	})
 	if TargetType == TargetTypeList.Area:
 		properties.append({
