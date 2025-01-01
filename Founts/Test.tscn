@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://wi2x5qcuxoyu"]
+
+[ext_resource type="Script" path="res://Founts/test.gd" id="1_20ohh"]
+[ext_resource type="Texture2D" uid="uid://yy6ktheaautk" path="res://snake/Sphere.png" id="2_5utwq"]
+[ext_resource type="Texture2D" uid="uid://c1rmwodbal5eb" path="res://snake/Head_b.png" id="2_ft2m5"]
+[ext_resource type="Texture2D" uid="uid://dybgryoy4bv4f" path="res://snake/Segment_b.png" id="4_r6rkq"]
+[ext_resource type="Texture2D" uid="uid://dxajytq4yesyi" path="res://snake/Segment_Shrinking_b.png" id="5_gqevv"]
+[ext_resource type="Texture2D" uid="uid://kuggfv5p6rwo" path="res://snake/Tail_b.png" id="6_n10vt"]
+[ext_resource type="Texture2D" uid="uid://dtcb4ljnsku8" path="res://snake/Head_c.png" id="7_n1ocg"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_20ohh")
+
+[node name="Head" type="Sprite2D" parent="."]
+visible = false
+texture_filter = 1
+position = Vector2(63, -1)
+texture = ExtResource("2_ft2m5")
+
+[node name="Sphere3" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(31, -1)
+texture = ExtResource("2_5utwq")
+
+[node name="Segment" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(16, -1)
+texture = ExtResource("4_r6rkq")
+
+[node name="Sphere" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+texture = ExtResource("2_5utwq")
+
+[node name="SegmentShrinking" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-18.504, -1)
+texture = ExtResource("5_gqevv")
+
+[node name="Sphere2" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-37, 1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_5utwq")
+
+[node name="SegmentShrinking2" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-53.504, 1)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("5_gqevv")
+
+[node name="Sphere4" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-69, 2)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("2_5utwq")
+
+[node name="SegmentShrinking3" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-84.504, 3)
+scale = Vector2(0.81, 0.81)
+texture = ExtResource("5_gqevv")
+
+[node name="Sphere5" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-100, 4)
+scale = Vector2(0.729, 0.729)
+texture = ExtResource("2_5utwq")
+
+[node name="SegmentShrinking4" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-112.504, 5)
+scale = Vector2(0.729, 0.729)
+texture = ExtResource("5_gqevv")
+
+[node name="Sphere6" type="Sprite2D" parent="."]
+z_index = -1
+texture_filter = 1
+position = Vector2(-126, 5)
+scale = Vector2(0.656, 0.656)
+texture = ExtResource("2_5utwq")
+
+[node name="Tail" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(-150, 6)
+texture = ExtResource("6_n10vt")
+
+[node name="HeadC" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(28, 0)
+texture = ExtResource("7_n1ocg")
