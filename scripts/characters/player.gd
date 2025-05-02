@@ -6,7 +6,7 @@ class_name Player
 
 @onready var AP: AnimationPlayer = %AP
 @onready var sprite_2d: Sprite2D =  %Sprite2D
-const GAME                       =  preload("res://Game.tscn")
+const GAME                       =  preload("res://scenes/levels/game.tscn")
 var speed                        := 400
 var screen_size
 var area: Area2D
