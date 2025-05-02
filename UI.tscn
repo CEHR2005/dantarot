@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3d4n848sbyjy"]
+[gd_scene load_steps=5 format=3 uid="uid://b3d4n848sbyjy"]
 
-[ext_resource type="Script" path="res://ui.gd" id="1_a6pb0"]
+[ext_resource type="Script" uid="uid://bsny6rj747k6t" path="res://ui.gd" id="1_a6pb0"]
+[ext_resource type="PackedScene" uid="uid://b3iay6xedpryi" path="res://Card.tscn" id="2_g6l6n"]
+[ext_resource type="Script" uid="uid://dhrnwanl44at3" path="res://Card.gd" id="3_qui0h"]
+
+[sub_resource type="Resource" id="Resource_vrfts"]
+script = ExtResource("3_qui0h")
+cardName = "Страшная карта"
+TargetType = 0
+card_effects = []
+metadata/_custom_type_script = "uid://dhrnwanl44at3"
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,5 +28,9 @@ offset_right = 1124.0
 offset_bottom = 66.0
 text = "Add card
 "
+
+[node name="Card" parent="." instance=ExtResource("2_g6l6n")]
+position = Vector2(764, 767)
+CardInfo = SubResource("Resource_vrfts")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1i5vw00tho8t"]
+[gd_scene load_steps=8 format=3 uid="uid://d1i5vw00tho8t"]
 
 [ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="1_0y7ql"]
-[ext_resource type="Script" path="res://doll.gd" id="2_2tpcs"]
-[ext_resource type="Script" path="res://base_unit.gd" id="3_h8oxy"]
+[ext_resource type="Script" uid="uid://dsmf5enw37hed" path="res://doll.gd" id="2_2tpcs"]
+[ext_resource type="Script" uid="uid://cnt8c4b34fdbh" path="res://base_unit.gd" id="3_h8oxy"]
 [ext_resource type="LabelSettings" uid="uid://bmno5t804sola" path="res://Founts/Doll.tres" id="4_4c586"]
+[ext_resource type="PackedScene" uid="uid://lsntm8lf1wj4" path="res://health_bar.tscn" id="5_sse6d"]
 
 [sub_resource type="Resource" id="Resource_e6epy"]
 script = ExtResource("3_h8oxy")
-Hp = 100
+Health = 0
+Max_Health = 0
 Effects_applied = []
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prni2"]
@@ -28,9 +30,9 @@ shape = SubResource("CapsuleShape2D_prni2")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -12.0
-offset_top = -50.0
+offset_top = -65.0
 offset_right = 11.0
-offset_bottom = -20.0
+offset_bottom = -35.0
 color = Color(0, 0, 0.0117647, 0.447059)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect"]
@@ -52,3 +54,6 @@ layout_mode = 2
 layout_mode = 2
 text = "text"
 label_settings = ExtResource("4_4c586")
+
+[node name="HealthBar" parent="." instance=ExtResource("5_sse6d")]
+unique_name_in_owner = true

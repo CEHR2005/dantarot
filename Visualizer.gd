@@ -1,13 +1,14 @@
 @tool
 extends Node2D
-## Made by LeifInTheWind 13-Aug-24
-## This is a companion project for the advanced exports tutorial on
-## youtube by https://www.youtube.com/@Leif_in_the_Wind
 
 @export var parentNode: Node2D
+
 var collisionShape: CollisionShape2D
 var newResource: Card
+
 @onready var card_name_label: Label = %CardName
+
+
 ## Be careful when running the process function in a tool script.
 ## If errors are written it can quickly crash the editor, fill
 ## the output log with errors, or slow down the editor to a crawl.
@@ -22,11 +23,7 @@ func _process(_delta) -> void:
 				update_shape()
 				update_visual()
 
-## A simple function. Other methods for getting the necessary
-## information to the visualizer and updating the editor are possible;
-## including using the draw function. The visualizer can also call
-## functions from tool resources/scripts in order to set up variables that
-## the visualizer wants to access.
+
 func update_shape() -> void:
 	if get_child_count() < 1:
 		collisionShape = CollisionShape2D.new()
@@ -37,6 +34,7 @@ func update_shape() -> void:
 	var newShape: Shape2D
 	newShape = newResource.cardArea
 	collisionShape.shape = newShape
-	
+
+
 func update_visual() -> void:
 	card_name_label.text = newResource.cardName

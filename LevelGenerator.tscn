@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://but1bp8unrxhh"]
 
-[ext_resource type="Script" path="res://level_generator.gd" id="1_qvhws"]
+[ext_resource type="Script" uid="uid://bh77jppcjf8ol" path="res://level_generator.gd" id="1_qvhws"]
 
 [node name="LevelGenerator" type="Node"]
 script = ExtResource("1_qvhws")

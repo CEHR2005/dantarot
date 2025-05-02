@@ -1,10 +1,10 @@
-[gd_scene load_steps=14 format=3 uid="uid://d0l5sxb51pxbc"]
+[gd_scene load_steps=14 format=3 uid="uid://d1ywa02rbsycj"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_kephj"]
+[ext_resource type="Script" uid="uid://djer7pi8837ds" path="res://player.gd" id="1_kephj"]
 [ext_resource type="Texture2D" uid="uid://d1h86cwh351cd" path="res://mage.png" id="1_lusj0"]
-[ext_resource type="Script" path="res://Hand.gd" id="2_1x04b"]
-[ext_resource type="Script" path="res://Card.gd" id="2_lrhxt"]
-[ext_resource type="Script" path="res://CardEffect.gd" id="2_ucwja"]
+[ext_resource type="Script" uid="uid://k2amp3h33yyc" path="res://Hand.gd" id="2_1x04b"]
+[ext_resource type="Script" uid="uid://dhrnwanl44at3" path="res://Card.gd" id="2_lrhxt"]
+[ext_resource type="Script" uid="uid://cext0kiyxi8qo" path="res://CardEffect.gd" id="2_ucwja"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7e6fn"]
 radius = 95.78
@@ -16,7 +16,7 @@ effect_type = 0
 delay = 0.0
 duration_type = 0
 duration = 0.0
-damage = 0.0
+damage = 10.0
 damage_type = 0
 
 [sub_resource type="Resource" id="Resource_6n3rb"]
@@ -65,8 +65,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8qtjn"]
 _data = {
-"Base": SubResource("Animation_lq2i4"),
-"RESET": SubResource("Animation_btp7j")
+&"Base": SubResource("Animation_lq2i4"),
+&"RESET": SubResource("Animation_btp7j")
 }
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t377i"]
@@ -74,7 +74,6 @@ radius = 21.0
 height = 98.0
 
 [node name="Player" type="CharacterBody2D"]
-position = Vector2(550, 290)
 script = ExtResource("1_kephj")
 hand = SubResource("Resource_k6cba")
 
@@ -82,7 +81,7 @@ hand = SubResource("Resource_k6cba")
 unique_name_in_owner = true
 root_node = NodePath("../..")
 libraries = {
-"": SubResource("AnimationLibrary_8qtjn")
+&"": SubResource("AnimationLibrary_8qtjn")
 }
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

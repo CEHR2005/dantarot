@@ -5,13 +5,12 @@ class_name CardEffect
 # Enum for Effects
 enum Effects {
 	Burn,
-	Poison, 
-	Freeze, 
+	Poison,
+	Freeze,
 	Stun,
 	Hex,
 	Paralized
 }
-
 # Variables for properties
 var effect_type: int
 var delay: float
@@ -19,22 +18,20 @@ var duration_type: int
 var duration: float
 var damage: float
 var damage_type: int
-
-enum duration_type_list { 
-	Instant, 
-	Timed, 
-	Infinite 
+enum duration_type_list {
+	Instant,
+	Timed,
+	Infinite
 }
-
-enum damage_type_list { 
-	hp_remove, 
-	phys, 
-	magic 
+enum damage_type_list {
+	hp_remove,
+	phys,
+	magic
 }
 
 
 func _to_string() -> String:
-	return CardEffect.Effects.keys()[effect_type]	
+	return CardEffect.Effects.keys()[effect_type]
 
 
 func _get_property_list() -> Array:

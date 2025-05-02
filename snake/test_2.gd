@@ -1,66 +1,67 @@
 extends Node2D
 
-const HEAD   = preload("res://snake/Head.png")
-const TAIL   = preload("res://snake/Tail.png")
+const HEAD    = preload("res://snake/Head.png")
+const TAIL    = preload("res://snake/Tail.png")
 const SEGMENT = preload("res://snake/Segment.png")
-const SPHERE = preload("res://snake/Sphere.png")
+const SPHERE  = preload("res://snake/Sphere.png")
 
 # Хардкодим «цепочку» (координаты, масштаб, текстура)
 var chain_data = [
-	# 1) Голова
-	{
-		"texture": HEAD,
-		"pos": Vector2(62, -6),
-		"scale": Vector2(1, 1)
-	},
-	# 2) Сфера (между головой и обычным сегментом)
-	{
-		"texture": SPHERE,
-		"pos": Vector2(31, -1),
-		"scale": Vector2(1, 1)
-	},
-	# 3) Обычный сегмент
-	{
-		"texture": SEGMENT,
-		"pos": Vector2(17, -6),
-		"scale": Vector2(1, 1)
-	},
-	# 4) Сфера (между обычным и первым уменьшающимся сегментом)
-	{
-		"texture": SPHERE,
-		"pos": Vector2(0, 0),
-		"scale": Vector2(1, 1)
-	},
-	# 5) Первый уменьшающийся сегмент (scale = 0.9)
-	{
-		"texture": SEGMENT,
-		"pos": Vector2(-20, -6),
-		"scale": Vector2(0.9, 0.9)
-	},
-	# 6) Сфера
-	{
-		"texture": SPHERE,
-		"pos": Vector2(-37, 1),
-		"scale": Vector2(0.9, 0.9)
-	},
-	# 7) Второй уменьшающийся сегмент (scale = 0.9)
-	{
-		"texture": SEGMENT,
-		"pos": Vector2(-55, -4),
-		"scale": Vector2(0.9, 0.9)
-	},
-	# Если нужен хвост прямо здесь:
-	# {
-	# 	"texture": TAIL,
-	# 	"pos": Vector2(...),
-	# 	"scale": Vector2(1, 1)
-	# }
-]
+				 # 1) Голова
+					 {
+						 "texture": HEAD,
+						 "pos": Vector2(62, -6),
+						 "scale": Vector2(1, 1)
+					 },
+				 # 2) Сфера (между головой и обычным сегментом)
+					 {
+						 "texture": SPHERE,
+						 "pos": Vector2(31, -1),
+						 "scale": Vector2(1, 1)
+					 },
+				 # 3) Обычный сегмент
+					 {
+						 "texture": SEGMENT,
+						 "pos": Vector2(17, -6),
+						 "scale": Vector2(1, 1)
+					 },
+				 # 4) Сфера (между обычным и первым уменьшающимся сегментом)
+					 {
+						 "texture": SPHERE,
+						 "pos": Vector2(0, 0),
+						 "scale": Vector2(1, 1)
+					 },
+				 # 5) Первый уменьшающийся сегмент (scale = 0.9)
+					 {
+						 "texture": SEGMENT,
+						 "pos": Vector2(-20, -6),
+						 "scale": Vector2(0.9, 0.9)
+					 },
+				 # 6) Сфера
+					 {
+						 "texture": SPHERE,
+						 "pos": Vector2(-37, 1),
+						 "scale": Vector2(0.9, 0.9)
+					 },
+				 # 7) Второй уменьшающийся сегмент (scale = 0.9)
+					 {
+						 "texture": SEGMENT,
+						 "pos": Vector2(-55, -4),
+						 "scale": Vector2(0.9, 0.9)
+					 },
+				 # Если нужен хвост прямо здесь:
+				 # {
+				 # 	"texture": TAIL,
+				 # 	"pos": Vector2(...),
+				 # 	"scale": Vector2(1, 1)
+				 # }
+				 ]
 
 # Здесь будут храниться созданные узлы (Node2D)
 var chain := []
 # А тут — исходное расстояние между chain[i] и chain[i-1]
 var distances := []
+
 
 func _ready() -> void:
 	# 1) Создаем объекты (Node2D + Sprite2D)
@@ -85,6 +86,7 @@ func _ready() -> void:
 		var dist = chain[i].position.distance_to(chain[i-1].position)
 		distances.append(dist)
 
+
 func _physics_process(delta: float) -> void:
 	# Пример: двигаем голову к позиции курсора, а все остальные «подтягиваются»
 	var mouse_pos = get_global_mouse_position()
@@ -97,11 +99,12 @@ func _physics_process(delta: float) -> void:
 			distances[i]
 		)
 
-	# Если хочешь плавнее движение, меняй голову не сразу в mouse_pos,
-	# а, например, через lerp:
-	# chain[0].position = chain[0].position.lerp(mouse_pos, 0.1)
 
-	# Можно также добавить логику "поворота" каждого звена, если нужно.
+# Если хочешь плавнее движение, меняй голову не сразу в mouse_pos,
+# а, например, через lerp:
+# chain[0].position = chain[0].position.lerp(mouse_pos, 0.1)
+
+# Можно также добавить логику "поворота" каждого звена, если нужно.
 
 func constrain_distance(point: Vector2, anchor: Vector2, desired_dist: float) -> Vector2:
 	var diff = point - anchor
