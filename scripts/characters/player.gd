@@ -10,6 +10,8 @@ const GAME                       =  preload("res://scenes/levels/game.tscn")
 var speed                        := 100
 var screen_size
 var area: Area2D
+var health: float = 100
+var max_health: float = 100
 var collision: CollisionShape2D
 
 
@@ -52,6 +54,10 @@ func _input(event: InputEvent) -> void:
 
 var last_hovered_doll: Doll = null
 
+func take_damage(damage: float):
+	health -= damage
+	print("hp")
+	
 
 func _process(delta):
 	if is_instance_valid(area):

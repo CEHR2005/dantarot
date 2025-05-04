@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://bs4fvytt2xftw"]
+
+[ext_resource type="Texture2D" uid="uid://dm6or8x8kofra" path="res://assets/images/Arrow.png" id="1_oa7lx"]
+[ext_resource type="Script" uid="uid://bb8jkiadeguau" path="res://scenes/characters/range_enemy_proj.gd" id="1_ubug1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ubug1"]
+size = Vector2(1.78422, 6.66495)
+
+[node name="RangeEnemyProj" type="Node2D"]
+script = ExtResource("1_ubug1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.56983
+scale = Vector2(3, 3)
+texture = ExtResource("1_oa7lx")
+
+[node name="Area2D" type="Area2D" parent="."]
+rotation = 1.56983
+scale = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.668598, 1.99935)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_ubug1")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

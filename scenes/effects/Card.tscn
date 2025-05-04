@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://b3iay6xedpryi"]
 
-[ext_resource type="Script" uid="uid://dhrnwanl44at3" path="res://Card.gd" id="1_hhetn"]
-[ext_resource type="Script" uid="uid://b2qma1ok4i23q" path="res://Adv.gd" id="1_hxv4s"]
-[ext_resource type="Script" uid="uid://dtrfwgieafesa" path="res://Visualizer.gd" id="2_y1cx4"]
-[ext_resource type="Script" uid="uid://cyalo5gcthsi2" path="res://child_node.gd" id="3_h7tkm"]
-[ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="5_1fykx"]
+[ext_resource type="Script" uid="uid://dhrnwanl44at3" path="res://scripts/cards/Card.gd" id="1_hhetn"]
+[ext_resource type="Script" uid="uid://b2qma1ok4i23q" path="res://scripts/ui/Adv.gd" id="1_hxv4s"]
+[ext_resource type="Script" uid="uid://dtrfwgieafesa" path="res://scripts/ui/Visualizer.gd" id="2_y1cx4"]
+[ext_resource type="Script" uid="uid://cyalo5gcthsi2" path="res://scripts/ui/child_node.gd" id="3_h7tkm"]
+[ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://assets/images/Strawdoll.png" id="5_1fykx"]
 
 [sub_resource type="Resource" id="Resource_rvg02"]
 script = ExtResource("1_hhetn")

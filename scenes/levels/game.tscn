@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://duw7q2xljgiaj"]
+[gd_scene load_steps=9 format=3 uid="uid://duw7q2xljgiaj"]
 
 [ext_resource type="Script" uid="uid://bl057sova4xh" path="res://scripts/core/game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://d1ywa02rbsycj" path="res://scenes/characters/Player.tscn" id="2_e2o6t"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b3d4n848sbyjy" path="res://scenes/ui/UI.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d1i5vw00tho8t" path="res://scenes/characters/Doll.tscn" id="5"]
 [ext_resource type="PackedScene" uid="uid://b5hpvn112sbe3" path="res://scenes/characters/Base_Enemy.tscn" id="6_limtx"]
+[ext_resource type="PackedScene" uid="uid://i7teiktvhlda" path="res://scenes/characters/Range_enemy.tscn" id="7_7rg7d"]
 
 [sub_resource type="Resource" id="Resource_fc0e3"]
 script = ExtResource("3_feb5d")
@@ -25,7 +26,7 @@ texture_filter = 1
 position = Vector2(933, 527)
 
 [node name="Doll" parent="." instance=ExtResource("5")]
-position = Vector2(104, 936)
+position = Vector2(135, 587)
 scale = Vector2(4.4375, 4.40625)
 flip_h = true
 base_unit = SubResource("Resource_fc0e3")
@@ -38,4 +39,9 @@ position = Vector2(960, 544)
 [node name="Control" parent="." instance=ExtResource("4_fc0e3")]
 
 [node name="Enemy" parent="." instance=ExtResource("6_limtx")]
-position = Vector2(614, 508)
+position = Vector2(475, 495)
+scale = Vector2(0.5, 0.5)
+
+[node name="Enemy2" parent="." instance=ExtResource("7_7rg7d")]
+position = Vector2(1607, 277)
+scale = Vector2(0.5, 0.5)
