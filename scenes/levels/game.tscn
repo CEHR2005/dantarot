@@ -1,15 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://duw7q2xljgiaj"]
+[gd_scene load_steps=8 format=3 uid="uid://duw7q2xljgiaj"]
 
 [ext_resource type="Script" uid="uid://bl057sova4xh" path="res://scripts/core/game.gd" id="1_7jktm"]
 [ext_resource type="PackedScene" uid="uid://d1ywa02rbsycj" path="res://scenes/characters/Player.tscn" id="2_e2o6t"]
 [ext_resource type="Script" uid="uid://cnt8c4b34fdbh" path="res://scripts/core/base_unit.gd" id="3_feb5d"]
 [ext_resource type="PackedScene" uid="uid://b3d4n848sbyjy" path="res://scenes/ui/UI.tscn" id="4_fc0e3"]
 [ext_resource type="PackedScene" uid="uid://d1i5vw00tho8t" path="res://scenes/characters/Doll.tscn" id="5"]
+[ext_resource type="PackedScene" uid="uid://b5hpvn112sbe3" path="res://scenes/characters/Base_Enemy.tscn" id="6_limtx"]
 
 [sub_resource type="Resource" id="Resource_fc0e3"]
 script = ExtResource("3_feb5d")
-Health = 100
-Max_Health = 100
+Health = 0.0
+Max_Health = 0.0
 Effects_applied = []
 metadata/_custom_type_script = "uid://cnt8c4b34fdbh"
 
@@ -35,3 +36,6 @@ base_unit = SubResource("Resource_fc0e3")
 position = Vector2(960, 544)
 
 [node name="Control" parent="." instance=ExtResource("4_fc0e3")]
+
+[node name="Enemy" parent="." instance=ExtResource("6_limtx")]
+position = Vector2(614, 508)

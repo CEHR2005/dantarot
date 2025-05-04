@@ -170,18 +170,6 @@ func redraw_coridors():
 							   tile_map_layer.get_neighbor_cell(c, TileSet.CELL_NEIGHBOR_LEFT_SIDE)
 		]
 		print(c)
-print(neighbors)
-print(neighbors.map(test))
-
-var atlas_cord = Cells.get(neighbors.map(test))
-if
-
-atlas_cord == null:
-			atlas_cord = Vector2i(3,3)
-		tile_map_layer.set_cell(c, TILE_CORRIDOR.source_id, atlas_cord, TILE_CORRIDOR.alt)
-
-
-
 
 func get_room_tiles(room):
 	var tiles = []

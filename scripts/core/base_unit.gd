@@ -2,8 +2,8 @@ extends Resource
 class_name BaseUnit
 signal effects_changed
 signal health_changed
-@export var Health: int
-@export var Max_Health: int
+@export var Health: float
+@export var Max_Health: float
 
 @export var Effects_applied: Array = []:
 	set(value):

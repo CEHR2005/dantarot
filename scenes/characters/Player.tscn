@@ -74,6 +74,7 @@ radius = 21.0
 height = 98.0
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 26
 script = ExtResource("1_kephj")
 hand = SubResource("Resource_k6cba")
 

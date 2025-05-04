@@ -20,5 +20,4 @@ func update_panel():
 		var lable = Label.new()
 		lable.text = CardEffect.Effects.keys()[effect.effect_type]
 		lable.label_settings = lable_settings
-		v_box_container
 		v_box_container.add_child(lable)

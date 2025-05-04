@@ -7,7 +7,7 @@ class_name Player
 @onready var AP: AnimationPlayer = %AP
 @onready var sprite_2d: Sprite2D =  %Sprite2D
 const GAME                       =  preload("res://scenes/levels/game.tscn")
-var speed                        := 400
+var speed                        := 100
 var screen_size
 var area: Area2D
 var collision: CollisionShape2D
@@ -77,7 +77,7 @@ func _process(delta):
 
 		last_hovered_doll = current_hovered_doll
 
-	var velocity = Vector2.ZERO
+	velocity = Vector2.ZERO
 	# Проверка нажатия клавиш и определение направления
 	if Input.is_action_pressed("ui_right"):
 		velocity.x += 1
