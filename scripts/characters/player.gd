@@ -253,6 +253,9 @@ func _update_hover_highlight() -> void:
 
 	_hovered_doll = current
 
+func redraw():
+	deck.draw()
+
 func _clear_preview() -> void:
 	_preview_area.monitoring = false
 	_hovered_doll = null

@@ -14,6 +14,7 @@ func _ready() -> void:
 	base_unit.death.connect(unspawn)
 	
 func unspawn():
+	Player.redraw()
 	self.queue_free()
 
 func _process(delta: float) -> void:

@@ -1,14 +1,20 @@
-[gd_scene load_steps=30 format=3 uid="uid://d1ywa02rbsycj"]
+[gd_scene load_steps=32 format=3 uid="uid://d1ywa02rbsycj"]
 
 [ext_resource type="Script" uid="uid://djer7pi8837ds" path="res://scripts/characters/player.gd" id="1_kephj"]
 [ext_resource type="Script" uid="uid://k2amp3h33yyc" path="res://scripts/cards/Hand.gd" id="2_1x04b"]
 [ext_resource type="Script" uid="uid://dhrnwanl44at3" path="res://scripts/cards/Card.gd" id="2_lrhxt"]
 [ext_resource type="Resource" uid="uid://b6k0drn8uc55c" path="res://scripts/cards/tres/Heal.tres" id="3_rpfb3"]
+[ext_resource type="Script" uid="uid://7gtatydmh7aa" path="res://scripts/cards/deck.gd" id="4_7lms1"]
 [ext_resource type="Resource" uid="uid://cula4emib7pj0" path="res://scripts/cards/tres/Dash.tres" id="4_miirx"]
 [ext_resource type="Texture2D" uid="uid://d2rvb2xffwsue" path="res://assets/images/Player/MC_Uni.png" id="5_gj1sn"]
 [ext_resource type="Resource" uid="uid://c6viie3kjb5o7" path="res://scripts/cards/tres/AOE.tres" id="5_oihyf"]
 [ext_resource type="Script" uid="uid://cnt8c4b34fdbh" path="res://scripts/core/base_unit.gd" id="5_rpfb3"]
 [ext_resource type="Resource" uid="uid://dhmrpkdg1ai1w" path="res://scripts/cards/tres/Shield.tres" id="6_7lms1"]
+
+[sub_resource type="Resource" id="Resource_ufbvs"]
+script = ExtResource("4_7lms1")
+cards = Array[ExtResource("2_lrhxt")]([ExtResource("3_rpfb3"), ExtResource("5_oihyf")])
+metadata/_custom_type_script = "uid://7gtatydmh7aa"
 
 [sub_resource type="Resource" id="Resource_k6cba"]
 script = ExtResource("2_1x04b")
@@ -445,6 +451,7 @@ metadata/_snap_count = 18
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 26
 script = ExtResource("1_kephj")
+deck = SubResource("Resource_ufbvs")
 hand = SubResource("Resource_k6cba")
 base_unit = SubResource("Resource_miirx")
 
