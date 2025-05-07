@@ -1,7 +1,6 @@
 extends Control
+@onready var health_bar: PlayerHealthBar = $HealthBar
 
 func _on_button_pressed() -> void:
-	var game: Game     = get_parent()
-	var player: Player = game.get_player()
-	player.hand.cards.append(player.deck.draw())
+	Player.hand.cards.append(Player.deck.draw())
 	print("test")

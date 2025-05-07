@@ -1,11 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://b5hpvn112sbe3"]
+[gd_scene load_steps=15 format=3 uid="uid://b5hpvn112sbe3"]
 
 [ext_resource type="Script" uid="uid://cojrsf7xg3hf6" path="res://scripts/characters/base_enemy.gd" id="1_aqfep"]
-[ext_resource type="Texture2D" uid="uid://db5b72t6dgwpx" path="res://assets/images/icon.svg" id="2_47xp5"]
+[ext_resource type="Texture2D" uid="uid://rvu24r323sxf" path="res://assets/images/Skele_mini.png" id="2_47xp5"]
 [ext_resource type="Texture2D" uid="uid://cuccad220ewnv" path="res://assets/images/Sword-slash 1-3.png" id="3_47xp5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bakb1"]
-size = Vector2(131, 130)
+size = Vector2(50, 110)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_aqfep"]
+radius = 112.004
 
 [sub_resource type="Animation" id="Animation_gaffh"]
 resource_name = "Attack"
@@ -73,8 +76,82 @@ _data = {
 radius = 40.0
 height = 126.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_aqfep"]
-radius = 112.004
+[sub_resource type="Animation" id="Animation_mma0s"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_47xp5"]
+resource_name = "Walk_down"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 6, 7, 8, 9]
+}
+
+[sub_resource type="Animation" id="Animation_hqbx1"]
+resource_name = "Walk_side"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_j000l"]
+resource_name = "Walk_up"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tojkr"]
+_data = {
+&"RESET": SubResource("Animation_mma0s"),
+&"Walk_down": SubResource("Animation_47xp5"),
+&"Walk_side": SubResource("Animation_hqbx1"),
+&"Walk_up": SubResource("Animation_j000l")
+}
 
 [node name="Enemy" type="CharacterBody2D"]
 collision_layer = 2
@@ -82,34 +159,15 @@ collision_mask = 21
 script = ExtResource("1_aqfep")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.854845, 0, 0.0899031, 1)
+unique_name_in_owner = true
+scale = Vector2(8, 8)
 texture = ExtResource("2_47xp5")
+hframes = 5
+vframes = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(4, 10)
 shape = SubResource("RectangleShape2D_bakb1")
-
-[node name="Marker2D" type="Marker2D" parent="."]
-position = Vector2(65, 0)
-
-[node name="AP" type="AnimationPlayer" parent="Marker2D"]
-unique_name_in_owner = true
-libraries = {
-&"": SubResource("AnimationLibrary_j000l")
-}
-
-[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
-position = Vector2(34, 1)
-scale = Vector2(6, 6)
-texture = ExtResource("3_47xp5")
-hframes = 6
-vframes = 6
-
-[node name="Attack" type="Area2D" parent="Marker2D"]
-collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D/Attack"]
-shape = SubResource("CapsuleShape2D_hqbx1")
 
 [node name="AttackRange" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -119,6 +177,38 @@ collision_layer = 8
 shape = SubResource("CircleShape2D_aqfep")
 debug_color = Color(0.960854, 0.147902, 0.341795, 0.42)
 
-[connection signal="animation_finished" from="Marker2D/AP" to="." method="_on_ap_animation_finished"]
-[connection signal="body_entered" from="Marker2D/Attack" to="." method="_on_attack_body_entered"]
+[node name="Marker2D2" type="Marker2D" parent="."]
+unique_name_in_owner = true
+rotation = 0.00443759
+
+[node name="Marker2D" type="Marker2D" parent="Marker2D2"]
+position = Vector2(65, 0)
+
+[node name="AP" type="AnimationPlayer" parent="Marker2D2/Marker2D"]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_j000l")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D2/Marker2D"]
+position = Vector2(34, 1)
+scale = Vector2(6, 6)
+texture = ExtResource("3_47xp5")
+hframes = 6
+vframes = 6
+
+[node name="Attack" type="Area2D" parent="Marker2D2/Marker2D"]
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Marker2D2/Marker2D/Attack"]
+shape = SubResource("CapsuleShape2D_hqbx1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_tojkr")
+}
+
 [connection signal="body_entered" from="AttackRange" to="." method="_on_attack_range_body_entered"]
+[connection signal="animation_finished" from="Marker2D2/Marker2D/AP" to="." method="_on_ap_animation_finished"]
+[connection signal="body_entered" from="Marker2D2/Marker2D/Attack" to="." method="_on_attack_body_entered"]

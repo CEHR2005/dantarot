@@ -9,8 +9,10 @@ enum Effects {
 	Freeze,
 	Stun,
 	Hex,
-	Paralized
+	Paralized,
+	None
 }
+var effectsList: String = ",".join(Effects.keys())
 # Variables for properties
 var effect_type: int
 var delay: float
@@ -43,7 +45,7 @@ func _get_property_list() -> Array:
 		"type": TYPE_INT,
 		"usage": PROPERTY_USAGE_DEFAULT,
 		"hint": PROPERTY_HINT_ENUM,
-		"hint_string": "Burn,Poison,Freeze,Stun,Hex,Paralized"
+		"hint_string": effectsList
 	})
 
 	# Delay

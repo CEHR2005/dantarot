@@ -1,13 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3d4n848sbyjy"]
+[gd_scene load_steps=6 format=3 uid="uid://b3d4n848sbyjy"]
 
 [ext_resource type="Script" uid="uid://bsny6rj747k6t" path="res://scripts/ui/ui.gd" id="1_a6pb0"]
-[ext_resource type="Texture2D" uid="uid://dlne507ak5ppa" path="res://assets/images/Cards/Картонка_АОЕ.png" id="2_nnfdp"]
-[ext_resource type="Texture2D" uid="uid://blbsx7bw0jhg6" path="res://assets/images/Cards/Картонка_Атака.png" id="3_s64wo"]
-[ext_resource type="Texture2D" uid="uid://456pmiy8ft63" path="res://assets/images/Cards/Рубашка_лжебожная.png" id="4_dqg8s"]
-[ext_resource type="Texture2D" uid="uid://d1s4dlpb5yfia" path="res://assets/images/Cards/Рубашка_мученническая.png" id="5_tnv4l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dqg8s"]
-bg_color = Color(0.886275, 0.113725, 0.141176, 1)
+[ext_resource type="Texture2D" uid="uid://dvup6qjnpgnre" path="res://assets/images/Cards/CardBack1.png" id="2_dqg8s"]
+[ext_resource type="Texture2D" uid="uid://bt74pfwqa23ty" path="res://assets/images/Cards/CardBack2.png" id="3_tnv4l"]
+[ext_resource type="PackedScene" uid="uid://bay4qlr07834f" path="res://scenes/ui/player_health_bar.tscn" id="6_tnv4l"]
+[ext_resource type="PackedScene" uid="uid://cg4ente8uot66" path="res://scenes/ui/HandUI.tscn" id="7_j3nm3"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -19,50 +16,45 @@ grow_vertical = 2
 script = ExtResource("1_a6pb0")
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 985.0
-offset_top = 27.0
-offset_right = 1124.0
-offset_bottom = 66.0
+layout_mode = 1
+offset_left = 2371.0
+offset_top = 46.0
+offset_right = 2510.0
+offset_bottom = 85.0
 text = "Add card
 "
 
-[node name="КартонкаАое" type="Sprite2D" parent="."]
-position = Vector2(534, 886)
-scale = Vector2(8, 8)
-texture = ExtResource("2_nnfdp")
-
-[node name="КартонкаАтака" type="Sprite2D" parent="."]
-position = Vector2(796, 887)
-scale = Vector2(8, 8)
-texture = ExtResource("3_s64wo")
-
 [node name="TextureRect" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 36.0
-offset_top = 757.0
-offset_right = 68.0
-offset_bottom = 805.0
-scale = Vector2(6, 6)
-texture = ExtResource("4_dqg8s")
+layout_mode = 1
+offset_left = 26.0
+offset_top = 1211.0
+offset_right = 58.0
+offset_bottom = 1259.0
+scale = Vector2(4, 4)
+texture = ExtResource("2_dqg8s")
 
 [node name="TextureRect2" type="TextureRect" parent="."]
-layout_mode = 0
-offset_left = 1687.0
-offset_top = 765.0
-offset_right = 1719.0
-offset_bottom = 813.0
-scale = Vector2(6, 6)
-texture = ExtResource("5_tnv4l")
+layout_mode = 1
+offset_left = 2384.0
+offset_top = 1216.0
+offset_right = 2416.0
+offset_bottom = 1264.0
+scale = Vector2(4, 4)
+texture = ExtResource("3_tnv4l")
 
-[node name="ProgressBar" type="ProgressBar" parent="."]
+[node name="HealthBar" parent="." instance=ExtResource("6_tnv4l")]
 layout_mode = 0
-offset_left = 37.0
-offset_top = 18.0
-offset_right = 427.0
-offset_bottom = 45.0
-theme_override_styles/fill = SubResource("StyleBoxFlat_dqg8s")
-value = 100.0
-show_percentage = false
+offset_left = 24.0
+offset_top = 17.0
+offset_right = 606.0
+offset_bottom = 41.0
+
+[node name="HandUi" parent="." instance=ExtResource("7_j3nm3")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+grow_vertical = 0
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

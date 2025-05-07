@@ -1,15 +1,15 @@
 [gd_scene load_steps=8 format=3 uid="uid://d1i5vw00tho8t"]
 
-[ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://Strawdoll.png" id="1_0y7ql"]
-[ext_resource type="Script" uid="uid://dsmf5enw37hed" path="res://doll.gd" id="2_2tpcs"]
-[ext_resource type="Script" uid="uid://cnt8c4b34fdbh" path="res://base_unit.gd" id="3_h8oxy"]
-[ext_resource type="LabelSettings" uid="uid://bmno5t804sola" path="res://Founts/Doll.tres" id="4_4c586"]
-[ext_resource type="PackedScene" uid="uid://lsntm8lf1wj4" path="res://health_bar.tscn" id="5_sse6d"]
+[ext_resource type="Texture2D" uid="uid://csxyqol2bppui" path="res://assets/images/Strawdoll.png" id="1_0y7ql"]
+[ext_resource type="Script" uid="uid://dsmf5enw37hed" path="res://scripts/characters/doll.gd" id="2_2tpcs"]
+[ext_resource type="Script" uid="uid://cnt8c4b34fdbh" path="res://scripts/core/base_unit.gd" id="3_h8oxy"]
+[ext_resource type="LabelSettings" uid="uid://bmno5t804sola" path="res://assets/founts/Doll.tres" id="4_4c586"]
+[ext_resource type="PackedScene" uid="uid://lsntm8lf1wj4" path="res://scenes/ui/health_bar.tscn" id="5_sse6d"]
 
 [sub_resource type="Resource" id="Resource_e6epy"]
 script = ExtResource("3_h8oxy")
-Health = 0
-Max_Health = 0
+Health = 0.0
+Max_Health = 0.0
 Effects_applied = []
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prni2"]
@@ -23,6 +23,8 @@ base_unit = SubResource("Resource_e6epy")
 lable_settings = ExtResource("4_4c586")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(0, -1)
@@ -52,8 +54,11 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-text = "text"
 label_settings = ExtResource("4_4c586")
 
 [node name="HealthBar" parent="." instance=ExtResource("5_sse6d")]
 unique_name_in_owner = true
+offset_left = -17.0
+offset_top = -29.0
+offset_right = 15.0
+offset_bottom = -21.0

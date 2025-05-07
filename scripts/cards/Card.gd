@@ -9,22 +9,11 @@ var card_effects: Array = []:
 		card_effects = value
 		notify_property_list_changed()
 
-#enum type {
-#Self = 1 << 0, ## Specifying that the first bit in the bit array is flipped
-### resulting in an integer value of 1
-#Enemy = 1 << 1,
-#Area = 1 << 2,
-#}
-#var cardType: int:
-#set(value):
-#cardType = value
-#notify_property_list_changed()
-#var typeKeys: Array = type.keys()
-#var typeList: String = ",".join(typeKeys)
 enum TargetTypeList {
 	Self,
 	Enemy,
 	Area,
+	Projectile
 }
 var targetsList: String = ",".join(TargetTypeList.keys())
 
@@ -105,11 +94,9 @@ func _get_property_list() -> Array:
 
 
 func get_target():
-	print("try get target")
 	pass
 
 
 func activate():
-	print("try activatre")
 	get_target()
 	
