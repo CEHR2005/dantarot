@@ -1,0 +1,40 @@
+[gd_scene load_steps=12 format=3 uid="uid://cg4ente8uot66"]
+
+[ext_resource type="Script" uid="uid://bbqc0h4l2j46n" path="res://scripts/ui/hand_ui.gd" id="1_oadkh"]
+[ext_resource type="Resource" uid="uid://b6k0drn8uc55c" path="res://scripts/cards/tres/Heal.tres" id="3_hsnue"]
+[ext_resource type="Resource" uid="uid://cula4emib7pj0" path="res://scripts/cards/tres/Dash.tres" id="4_huwxl"]
+[ext_resource type="PackedScene" uid="uid://dk3h7xdhwavf" path="res://Cards/Card_Dash.res" id="5_ajubm"]
+[ext_resource type="PackedScene" uid="uid://eq71j7b0uk28" path="res://Cards/Card_Heal.res" id="5_wkt7p"]
+[ext_resource type="Resource" uid="uid://cdrlajdyiga5m" path="res://scripts/cards/tres/Direct.tres" id="6_pmq44"]
+[ext_resource type="PackedScene" uid="uid://0ytw6vxvpymf" path="res://Cards/Card_Direct.res" id="7_mrfis"]
+[ext_resource type="Resource" uid="uid://c6viie3kjb5o7" path="res://scripts/cards/tres/AOE.tres" id="8_yh6pj"]
+[ext_resource type="PackedScene" uid="uid://g47x1jvyiaoc" path="res://Cards/Card_AOE.res" id="9_q3vds"]
+[ext_resource type="Resource" uid="uid://dhmrpkdg1ai1w" path="res://scripts/cards/tres/Shield.tres" id="10_16fpr"]
+[ext_resource type="PackedScene" uid="uid://blayb8l2xliyp" path="res://Cards/Card_Shield.res" id="11_yv4pw"]
+
+[node name="HandUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_oadkh")
+card_scenes = {
+ExtResource("3_hsnue"): ExtResource("5_wkt7p"),
+ExtResource("4_huwxl"): ExtResource("5_ajubm"),
+ExtResource("6_pmq44"): ExtResource("7_mrfis"),
+ExtResource("8_yh6pj"): ExtResource("9_q3vds"),
+ExtResource("10_16fpr"): ExtResource("11_yv4pw")
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+alignment = 1
